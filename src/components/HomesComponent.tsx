@@ -7,6 +7,8 @@ type State={
   homes: string[]
 }
 
+
+
 export default class HomesComponent extends React.Component<{}, State>{
   constructor(props:any){
     super(props);
@@ -14,6 +16,12 @@ export default class HomesComponent extends React.Component<{}, State>{
       homes: ["1", "2"]
     }
   }
+
+async componentDidMount(){
+  const res = await Axios.get('http://localhost:3000/api/homes')
+  console.log(res)
+  this.setState({homes: res.data})
+}
 
   createHome= async (event:any, form:any)=>{
        event.preventDefault()
@@ -27,6 +35,7 @@ export default class HomesComponent extends React.Component<{}, State>{
         price: form.price.value
       })
       console.log(res.data)
+      this.setState({homes: [...this.state.homes, res.data]})
   }
 
   render(){
@@ -40,7 +49,7 @@ export default class HomesComponent extends React.Component<{}, State>{
           <input type="number" placeholder="price" name="price"  />
           <button>Create Home</button>
         </form>
-      <div>{this.state.homes.map(h=> <HomeComponent />)}</div>
+      <div>{this.state.homes.map(h=> <HomeComponent homeProp={h as any}  />)}</div>
       </div>
     )
   }
