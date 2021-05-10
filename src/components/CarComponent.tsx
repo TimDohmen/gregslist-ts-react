@@ -1,4 +1,4 @@
-import React, {Component} from "react"
+import React  from "react"
 import CarInterface from "../interfaces/CarInterface"
 
 interface Props {
@@ -7,7 +7,6 @@ interface Props {
 
 export default class CarComponent extends React.Component<Props, {}> {
 
-  // eslint-disable-next-line @typescript-eslint/no-useless-constructor
   constructor(props: any){
     super(props);
     this.bid = this.bid.bind(this)
