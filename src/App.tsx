@@ -7,6 +7,7 @@ import CarsRoute from './components/CarsRoute';
 import CarPage from './CarPage';
 import CarsComponent from './components/CarsComponent';
 import HomesComponent from './components/HomesComponent';
+import HomeDetails from './HomeDetails';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route exact path='/cars' component={CarsComponent} ></Route>
           <Route exact path='/cars/:id' component={CarPage}><CarPage/></Route>
           <Route exact path='/homes' component={HomesComponent} ></Route>
+          <Route exact path='/homes/:id' component={HomeDetails} ><HomeDetails/></Route>
 
         </Switch>
       </main>
