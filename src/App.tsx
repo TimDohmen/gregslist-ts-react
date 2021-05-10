@@ -6,6 +6,7 @@ import HomePage from './HomePage';
 import CarsRoute from './components/CarsRoute';
 import CarPage from './CarPage';
 import CarsComponent from './components/CarsComponent';
+import HomesComponent from './components/HomesComponent';
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
         <h1>Welcome to GregsList</h1>
         
 
-        <Link to='/cars'>Cars</Link>
+        <Link to='/cars'>View Cars</Link>
+        <Link to='/homes'>View Homes</Link>
         <Link to='/'>Home</Link>
 
       </header>
@@ -27,6 +29,8 @@ function App() {
           {/* a space breaks the route.................... */}
           <Route exact path='/cars' component={CarsComponent} ></Route>
           <Route exact path='/cars/:id' component={CarPage}><CarPage/></Route>
+          <Route exact path='/homes' component={HomesComponent} ></Route>
+
         </Switch>
       </main>
     </div>
