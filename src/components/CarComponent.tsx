@@ -1,4 +1,5 @@
 import React  from "react"
+import { Link } from "react-router-dom";
 import CarInterface from "../interfaces/CarInterface"
 
 interface Props {
@@ -22,7 +23,9 @@ export default class CarComponent extends React.Component<Props, {}> {
   render(){
     return(
       <div className="card">
+        <Link to={`/cars/${this.props.carProp._id}`} >
         <img className="card-img-top" src={this.props.carProp.img} alt=""></img>
+        </Link>
         <div className="card-body">
          <div> <h3> {this.props.carProp.make}</h3></div>
          <div><h3>{this.props.carProp.model}</h3></div>

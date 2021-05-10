@@ -7,6 +7,7 @@ interface CarInterface{
   img: string,
   price: number,
   mileage: number,
+  _id: string
 }
 
 export default CarInterface
