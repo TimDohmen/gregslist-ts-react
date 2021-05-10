@@ -49,7 +49,7 @@ async componentDidMount(){
           <input type="number" placeholder="price" name="price"  />
           <button>Create Home</button>
         </form>
-      <div>{this.state.homes.map(h=> <HomeComponent homeProp={h as any}  />)}</div>
+      <div>{this.state.homes.map((h, i)=> <HomeComponent homeProp={h as any} key={i}  />)}</div>
       </div>
     )
   }
