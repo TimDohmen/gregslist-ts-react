@@ -31,16 +31,28 @@ constructor(props: any){
 
     } 
     this.createCar=this.createCar.bind(this)
+    this.setState = this.setState.bind(this)
 }
+
 
    async componentDidMount(){
      try{
        const cars = await Axios.get('http://localhost:3000/api/cars')
-       console.log(cars)
+      //  console.log(cars)
        this.setState({cars:cars.data.map((c: CarInterface)=> c), isLoaded: true})
+      // this.getCars()
      }catch(e){
        console.error(e)
      }
+   }
+
+   async componentDidUpdate(){
+    try{
+      const cars = await Axios.get('http://localhost:3000/api/cars')
+      this.setState({cars:cars.data.map((c: CarInterface)=> c), isLoaded: true})
+    }catch(e){
+      console.error(e)
+    }
    }
 
 createCar= async(event : any, carData: any)=>{
@@ -74,7 +86,7 @@ createCar= async(event : any, carData: any)=>{
             <button type="submit">Submit</button>
           </form>
        <div> 
-         {isLoaded ? cars.map((c,i) => <CarComponent carProp={c} key={i}/> ) : <h1> 'No cars loaded.' </h1>}
+         {isLoaded ? cars.map((c,i) => <CarComponent carProp={c} key={i} getCars={this.componentDidUpdate}/> ) : <h1> 'No cars loaded.' </h1>}
       </div>
        </div>
      )

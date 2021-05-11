@@ -7,9 +7,7 @@ jobProp: JobInterface
 }
 
 export default class JobComponent extends React.Component<Props,{}>{
-  constructor(props: any){
-      super(props);
-  }
+
 
   render(){
     return(
