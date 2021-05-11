@@ -31,7 +31,10 @@ function HomeDetails(){
       setHome(res.data)
     }
     GetHomeDetails()
-  }, [id])
+  }, [id.id])
+
+
+
 if(home == null){
   return(
     <div>

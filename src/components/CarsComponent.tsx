@@ -34,7 +34,6 @@ constructor(props: any){
     this.setState = this.setState.bind(this)
 }
 
-
    async componentDidMount(){
      try{
        const cars = await Axios.get('http://localhost:3000/api/cars')
